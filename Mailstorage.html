@@ -1,0 +1,286 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Form</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        body {
+            padding: 20px;
+            background-image: url("./images/neon\ light\ background\ blur\ fluorescent\ glow\ purple.jpg");
+            background-size:contain;
+            /* background-image: linear-gradient(90deg, #5433ff, #20bdff, #a5fecb); */
+            font-family: Arial, sans-serif;
+            color: #fff; /* Text color */
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background-color: rgba(255, 255, 255, 0.1); /* Transparent white */
+            border-radius: 10px;
+            padding: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.2); /* Transparent white border */
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        input[type="email"],
+        input[type="password"],
+        select {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-bottom: 2px solid #ccc;
+            background-color: transparent;
+            font-size: 16px;
+            color: #fff; /* Text color */
+        }
+
+        input[type="email"]::placeholder,
+        input[type="password"]::placeholder,
+        select::placeholder {
+            color: rgba(255, 255, 255, 0.5); /* Placeholder color */
+        }
+
+        input[type="email"]:focus,
+        input[type="password"]:focus,
+        select:focus {
+            border-bottom-color: #007bff;
+            outline: none;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .nav-tabs {
+            border-bottom: none;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .nav-item {
+            margin-right: 10px;
+        }
+
+        .nav-link {
+            color: #007bff;
+            text-decoration: none;
+            padding: 10px;
+            border-radius: 4px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            background-color: #0056b3;
+            color: #fff;
+        }
+
+        .tab-content {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .tab-pane {
+            margin-top: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+
+        th, td {
+            border-bottom: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+
+        tbody tr:hover {
+            background-color: #f2f2f2;
+        }
+
+        /* Anchor tag styles with hover effects */
+        a {
+            color: #007bff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #0056b3;
+        }
+
+        /* Customizing select box */
+        select {
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            padding-right: 30px; /* Add space for the dropdown arrow */
+            background-color: #5433ff; /* Dropdown background color */
+            color: #fff; /* Dropdown text color */
+            border: none;
+            border-bottom: 2px solid #ccc;
+            font-size: 16px;
+        }
+
+        select:focus {
+            border-bottom-color: #007bff;
+            outline: none;
+        }
+
+        /* Styling options */
+        option {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="card">
+        <h2>Email Form</h2>
+        
+        <!-- Form Section -->
+        <form id="emailForm" action="http://localhost:3000/element" method="get" >
+            <div class="form-group">
+                <label for="inputEmail">Email Address</label>
+                <input name="username" type="email" id="inputEmail" placeholder="Enter your email" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="inputPassword">Password</label>
+                <input type="password" name="password" id="inputPassword" placeholder="Enter your password" required>
+            </div>
+
+            <div class="form-group">
+                <label for="emailType">Email Type</label>
+                <select id="emailType" required style="background-color: transparent;">
+                    <option value="" style="color: #5433ff; background-color: #fff">Select Type</option>
+                    <option value="student" style="color: #5433ff; background-color: #fff">Student Email</option>
+                    <option value="office" style="color: #5433ff; background-color: #fff">Office Email</option>
+                    <option value="personal" style="color: #5433ff; background-color: #fff">Personal Email</option>
+                </select>
+            </div>
+<!-- onclick="submitForm()" -->
+            <button type="button" >Submit</button>
+        </form>
+    </div>
+
+    <!-- Tabular Section -->
+    <ul class="nav nav-tabs" id="myTabs">
+        <li class="nav-item">
+            <a  class="nav-link active" id="student-tab" href="#student">Student Emails</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="office-tab" href="#office">Office Emails</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="personal-tab" href="#personal">Personal Emails</a>
+        </li>
+    </ul>
+
+    <div class="tab-content">
+        <div class="tab-pane show active" id="student">
+            <h3>Student Email Table</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Email Address</th>
+                        <th>Password</th>
+                    </tr>
+                </thead>
+                <tbody id="studentTableBody"></tbody>
+            </table>
+        </div>
+        <div class="tab-pane" id="office">
+            <h3>Office Email Table</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Email Address</th>
+                        <th>Password</th>
+                    </tr>
+                </thead>
+                <tbody id="officeTableBody"></tbody>
+            </table>
+        </div>
+        <div class="tab-pane" id="personal">
+            <h3>Personal Email Table</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Email Address</th>
+                        <th>Password</th>
+                    </tr>
+                </thead>
+                <tbody id="personalTableBody"></tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script>
+    function submitForm() {
+        var email = document.getElementById('inputEmail').value;
+        var password = document.getElementById('inputPassword').value;
+        var emailType = document.getElementById('emailType').value;
+
+        // Clear input fields
+        document.getElementById('inputEmail').value = '';
+        document.getElementById('inputPassword').value = '';
+        document.getElementById('emailType').value = ''; // Reset select input
+
+        // Display submitted data in the respective table
+        var tableBody = document.getElementById(emailType + 'TableBody');
+        var newRow = tableBody.insertRow(tableBody.rows.length);
+        var emailCell = newRow.insertCell(0);
+        var passwordCell = newRow.insertCell(1);
+        emailCell.textContent = email;
+        // Display password in encrypted form (dummy encryption)
+        passwordCell.textContent = encryptPassword(password);
+    }
+
+    // Dummy function to encrypt password (for demonstration purposes)
+    function encryptPassword(password) {
+        // Your encryption logic here
+        // For demonstration, just reversing the password
+        return password.split('').reverse().join('');
+    }
+</script>
+</body>
+</html>
